@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HengOngBet - 马来西亚首选在线游戏平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            font-family: 'Arial', sans-serif;
+            color: #FFD700;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow-text {
+            text-shadow: 
+                0 0 10px #FFD700,
+                0 0 20px #FFD700,
+                0 0 30px #FFD700;
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .feature-card {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            border: 3px solid #FFD700;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+        }
+        
+        .logo-container {
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
+            padding: 20px;
+            border-radius: 20px;
+        }
+        
+        .promo-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* PDF optimization */
+        @media print {
+            body { 
+                background-color: #000000 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .floating { animation: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 顶部品牌横幅 -->
+    <header class="text-center py-8">
+        <div class="logo-container inline-block mb-6">
+            <img src="https://page.gensparksite.com/v1/base64_upload/4bc1122a592a628f0984f95859743e7e" 
+                 alt="HengOngBet Logo" 
+                 class="w-32 h-32 mx-auto floating">
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold gold-gradient glow-text mb-4">
+            马来西亚首选游戏平台
+        </h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-yellow-400 glow-text">
+            立即加入代理计划
+        </h2>
+    </header>
+
+    <!-- 主要促销图片 -->
+    <section class="text-center py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <img src="https://page.gensparksite.com/v1/base64_upload/6d1745daa576f072572a5a9de07aac18" 
+                 alt="HengOngBet 促销活动" 
+                 class="promo-image mx-auto floating">
+        </div>
+    </section>
+
+    <!-- CTA行动按钮 -->
+    <section class="text-center py-8">
+        <button class="cta-button floating" onclick="handleCTAClick()">
+            <i class="fas fa-star mr-2"></i>
+            立即加入代理
+            <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+        <p class="text-yellow-300 text-sm mt-4">
+            *受条款和条件约束，请负责任地游戏
+        </p>
+    </section>
+
+    <!-- 三大核心服务特点 -->
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 代理优惠 -->
+                <div class="feature-card rounded-xl p-6 text-center floating">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-gift text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold gold-gradient mb-3">代理优惠</h3>
+                    <p class="text-yellow-200 leading-relaxed">
+                        高回酬奖励计划，让您的每一份努力都获得丰厚回报。专业代理支持，助您成功。
+                    </p>
+                </div>
+
+                <!-- 24/7客服 -->
+                <div class="feature-card rounded-xl p-6 text-center floating" style="animation-delay: 0.5s">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-clock text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold gold-gradient mb-3">24/7客服</h3>
+                    <p class="text-yellow-200 leading-relaxed">
+                        全天候专业客服团队，随时为您解答问题，提供即时支持和专业指导。
+                    </p>
+                </div>
+
+                <!-- 安全保障 -->
+                <div class="feature-card rounded-xl p-6 text-center floating" style="animation-delay: 1s">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-shield-alt text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold gold-gradient mb-3">安全保障</h3>
+                    <p class="text-yellow-200 leading-relaxed">
+                        资金安全有保障，游戏公平透明，采用国际标准加密技术保护您的隐私。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer class="text-center py-8 border-t border-yellow-600">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-yellow-300 mb-2">
+                © 2024 HengOngBet. 保留所有权利。
+            </p>
+            <p class="text-yellow-400 text-sm">
+                <i class="fas fa-exclamation-triangle mr-1"></i>
+                仅限18岁以上人士参与。请负责任地游戏。如需帮助，请联系相关机构。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function handleCTAClick() {
+            // 这里可以添加跳转链接或其他行动
+            alert('请联系我们的客服团队了解代理详情！\n\n我们将为您提供：\n• 专业代理培训\n• 高额佣金回报\n• 24/7技术支持');
+        }
+
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.floating');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = (index * 0.2) + 's';
+            });
+        });
+
+        // 按钮点击效果
+        document.querySelector('.cta-button').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(1deg)';
+        });
+
+        document.querySelector('.cta-button').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    </script>
+</body>
+</html>
