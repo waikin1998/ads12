@@ -10,25 +10,72 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body, html {
             height: 100vh;
             overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
         }
-
+        
         .container {
+            position: relative;
             width: 100vw;
             height: 100vh;
-            position: relative;
             background-image: url('https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             background-color: #1a4d3a;
         }
-
-        /* Golden Particle Effects */
+        
+        .cta-container {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        
+        .cta-button {
+            width: 280px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(255, 215, 0, 0.3));
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 15px 30px rgba(255, 215, 0, 0.5));
+        }
+        
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* 喷金特效 */
         .golden-particles {
             position: absolute;
             top: 0;
@@ -38,270 +85,214 @@
             pointer-events: none;
             overflow: hidden;
         }
-
+        
         .particle {
             position: absolute;
-            background: radial-gradient(circle, #ffd700, #ffb347);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #ffd700, #ffaa00);
             border-radius: 50%;
-            animation: float 3s infinite ease-in-out;
+            animation: fall linear infinite;
+            opacity: 0.8;
         }
-
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         .coin {
             position: absolute;
             width: 20px;
             height: 20px;
-            background: linear-gradient(45deg, #ffd700, #ffb347, #ffd700);
+            background: linear-gradient(45deg, #ffd700, #ffaa00, #ffd700);
             border-radius: 50%;
-            animation: coinFloat 4s infinite ease-in-out;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            animation: coinFloat linear infinite;
+            opacity: 0.9;
         }
-
+        
+        @keyframes coinFloat {
+            0% {
+                transform: translateY(-50px) translateX(0px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) translateX(20px) rotate(180deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) translateX(-20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         .sparkle {
             position: absolute;
             width: 4px;
             height: 4px;
             background: #ffd700;
-            border-radius: 50%;
-            animation: sparkle 2s infinite ease-in-out;
-            box-shadow: 0 0 6px #ffd700;
+            animation: sparkle 1.5s linear infinite;
         }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.8;
-            }
-            50% { 
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes coinFloat {
-            0% { 
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(-50px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
+        
         @keyframes sparkle {
-            0%, 100% { 
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(1.5);
-            }
-        }
-
-        /* CTA Button Styles */
-        .cta-container {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-        }
-
-        .cta-button {
-            display: block;
-            width: 200px;
-            height: auto;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite, glow 3s infinite alternate;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-        }
-
-        .cta-button:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
-        }
-
-        .cta-button:active {
-            transform: scale(0.95);
-        }
-
-        @keyframes pulse {
             0%, 100% {
-                transform: scale(1);
+                opacity: 0;
+                transform: scale(0);
             }
             50% {
-                transform: scale(1.05);
+                opacity: 1;
+                transform: scale(1);
             }
         }
-
+        
+        .glow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent);
+            border-radius: 50%;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
         @keyframes glow {
             0% {
-                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+                opacity: 0.3;
+                transform: scale(0.8);
             }
             100% {
-                filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.9));
+                opacity: 0.8;
+                transform: scale(1.2);
             }
         }
-
-        /* Golden Rain Effect */
-        .golden-rain {
-            position: absolute;
-            top: -10px;
-            width: 2px;
-            height: 15px;
-            background: linear-gradient(to bottom, #ffd700, transparent);
-            animation: rain 3s infinite linear;
-        }
-
-        @keyframes rain {
-            0% {
-                transform: translateY(-50px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive Design */
+        
+        /* 响应式设计 */
         @media (max-width: 768px) {
             .cta-button {
-                width: 150px;
+                width: 240px;
             }
             
             .cta-container {
-                bottom: 10%;
+                bottom: 15%;
             }
         }
-
+        
         @media (max-width: 480px) {
             .cta-button {
-                width: 120px;
+                width: 200px;
+            }
+            
+            .cta-container {
+                bottom: 12%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Golden Particle Effects -->
+        <!-- 喷金特效容器 -->
         <div class="golden-particles" id="particles"></div>
         
-        <!-- CTA Button -->
+        <!-- CTA按钮 -->
         <div class="cta-container">
             <a href="https://t.ly/HOBADS05" target="_blank">
                 <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" 
-                     alt="马上申请代理" 
-                     class="cta-button">
+                     alt="马上申请代理" class="cta-button">
             </a>
         </div>
     </div>
 
     <script>
-        // Create golden particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
+        // 创建喷金特效
+        function createGoldenEffects() {
+            const container = document.getElementById('particles');
             
-            // Create floating coins
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const coin = document.createElement('div');
-                    coin.className = 'coin';
-                    coin.style.left = Math.random() * 100 + '%';
-                    coin.style.animationDelay = Math.random() * 2 + 's';
-                    coin.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                    particlesContainer.appendChild(coin);
-                    
-                    setTimeout(() => {
-                        coin.remove();
-                    }, 6000);
-                }, i * 800);
-            }
-            
-            // Create sparkles
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'sparkle';
-                    sparkle.style.left = Math.random() * 100 + '%';
-                    sparkle.style.top = Math.random() * 100 + '%';
-                    sparkle.style.animationDelay = Math.random() * 2 + 's';
-                    particlesContainer.appendChild(sparkle);
-                    
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 2000);
-                }, i * 200);
-            }
-            
-            // Create golden rain
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const rain = document.createElement('div');
-                    rain.className = 'golden-rain';
-                    rain.style.left = Math.random() * 100 + '%';
-                    rain.style.animationDelay = Math.random() * 1 + 's';
-                    particlesContainer.appendChild(rain);
-                    
-                    setTimeout(() => {
-                        rain.remove();
-                    }, 3000);
-                }, i * 300);
-            }
-            
-            // Create floating particles
-            for (let i = 0; i < 12; i++) {
+            // 创建金色粒子
+            function createParticle() {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.width = (Math.random() * 8 + 4) + 'px';
-                particle.style.height = particle.style.width;
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 3 + 's';
-                particle.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                particlesContainer.appendChild(particle);
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 5000);
             }
-        }
-        
-        // Initialize particles
-        createParticles();
-        
-        // Continuously create new particles
-        setInterval(() => {
-            // Create new coins
-            const coin = document.createElement('div');
-            coin.className = 'coin';
-            coin.style.left = Math.random() * 100 + '%';
-            document.getElementById('particles').appendChild(coin);
-            setTimeout(() => coin.remove(), 4000);
             
-            // Create new sparkles
-            if (Math.random() > 0.7) {
+            // 创建金币
+            function createCoin() {
+                const coin = document.createElement('div');
+                coin.className = 'coin';
+                coin.style.left = Math.random() * 100 + '%';
+                coin.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                coin.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(coin);
+                
+                setTimeout(() => {
+                    if (coin.parentNode) {
+                        coin.parentNode.removeChild(coin);
+                    }
+                }, 7000);
+            }
+            
+            // 创建闪烁效果
+            function createSparkle() {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
                 sparkle.style.top = Math.random() * 100 + '%';
-                document.getElementById('particles').appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 2000);
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    if (sparkle.parentNode) {
+                        sparkle.parentNode.removeChild(sparkle);
+                    }
+                }, 1500);
             }
             
-            // Create new golden rain
-            if (Math.random() > 0.8) {
-                const rain = document.createElement('div');
-                rain.className = 'golden-rain';
-                rain.style.left = Math.random() * 100 + '%';
-                document.getElementById('particles').appendChild(rain);
-                setTimeout(() => rain.remove(), 3000);
+            // 创建光晕效果
+            function createGlow() {
+                const glow = document.createElement('div');
+                glow.className = 'glow';
+                glow.style.left = Math.random() * 100 + '%';
+                glow.style.top = Math.random() * 100 + '%';
+                glow.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(glow);
+                
+                setTimeout(() => {
+                    if (glow.parentNode) {
+                        glow.parentNode.removeChild(glow);
+                    }
+                }, 4000);
             }
-        }, 1000);
+            
+            // 定期创建特效
+            setInterval(createParticle, 300);
+            setInterval(createCoin, 800);
+            setInterval(createSparkle, 500);
+            setInterval(createGlow, 1200);
+        }
+        
+        // 页面加载后启动特效
+        window.addEventListener('load', createGoldenEffects);
+        
+        // 添加CTA按钮点击反馈
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
     </script>
 </body>
 </html>
