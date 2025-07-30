@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,22 +14,22 @@
         body, html {
             height: 100vh;
             overflow: hidden;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         .container {
-            position: relative;
             width: 100vw;
             height: 100vh;
+            position: relative;
             background-image: url('https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            background-color: #1a5f3f;
+            background-color: #1a4d3a;
         }
 
-        /* Golden particle effects */
-        .golden-effects {
+        /* Golden Particle Effects */
+        .golden-particles {
             position: absolute;
             top: 0;
             left: 0;
@@ -39,48 +39,46 @@
             overflow: hidden;
         }
 
-        .golden-particle {
+        .particle {
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, #ffd700, #ffed4e);
+            background: radial-gradient(circle, #ffd700, #ffb347);
             border-radius: 50%;
             animation: float 3s infinite ease-in-out;
-            opacity: 0.8;
         }
 
-        .golden-particle:nth-child(odd) {
-            animation-delay: -1s;
-        }
-
-        .golden-particle:nth-child(even) {
-            animation-delay: -2s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.5;
-            }
-        }
-
-        .golden-coin {
+        .coin {
             position: absolute;
             width: 20px;
             height: 20px;
-            background: radial-gradient(circle, #ffd700 30%, #ffed4e 60%, #daa520 100%);
+            background: linear-gradient(45deg, #ffd700, #ffb347, #ffd700);
             border-radius: 50%;
             animation: coinFloat 4s infinite ease-in-out;
-            opacity: 0.9;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite ease-in-out;
+            box-shadow: 0 0 6px #ffd700;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
         }
 
         @keyframes coinFloat {
-            0% {
+            0% { 
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
@@ -90,53 +88,45 @@
             90% {
                 opacity: 1;
             }
-            100% {
+            100% { 
                 transform: translateY(-50px) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fff700;
-            border-radius: 50%;
-            animation: sparkle 2s infinite ease-in-out;
-        }
-
         @keyframes sparkle {
-            0%, 100% {
+            0%, 100% { 
                 opacity: 0;
-                transform: scale(0);
+                transform: scale(0.5);
             }
-            50% {
+            50% { 
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1.5);
             }
         }
 
-        /* CTA Button */
+        /* CTA Button Styles */
         .cta-container {
             position: absolute;
-            bottom: 8%;
+            bottom: 15%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
         }
 
         .cta-button {
-            width: 180px;
+            display: block;
+            width: 200px;
             height: auto;
             cursor: pointer;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite ease-in-out;
-            filter: drop-shadow(0 8px 16px rgba(255, 215, 0, 0.3));
+            animation: pulse 2s infinite, glow 3s infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
         }
 
         .cta-button:hover {
             transform: scale(1.1);
-            filter: drop-shadow(0 12px 24px rgba(255, 215, 0, 0.5));
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
         }
 
         .cta-button:active {
@@ -146,67 +136,67 @@
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                filter: drop-shadow(0 8px 16px rgba(255, 215, 0, 0.3));
             }
             50% {
                 transform: scale(1.05);
-                filter: drop-shadow(0 12px 20px rgba(255, 215, 0, 0.4));
             }
-        }
-
-        /* Glow effect around CTA */
-        .cta-glow {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
-            border-radius: 50px;
-            animation: glow 3s infinite ease-in-out;
         }
 
         @keyframes glow {
-            0%, 100% {
-                opacity: 0.5;
-                transform: scale(1);
+            0% {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
             }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.1);
+            100% {
+                filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.9));
             }
         }
 
-        /* Responsive design */
+        /* Golden Rain Effect */
+        .golden-rain {
+            position: absolute;
+            top: -10px;
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(to bottom, #ffd700, transparent);
+            animation: rain 3s infinite linear;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .cta-button {
                 width: 150px;
             }
             
             .cta-container {
-                bottom: 6%;
+                bottom: 10%;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                width: 130px;
-            }
-            
-            .cta-container {
-                bottom: 5%;
+                width: 120px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Golden Effects -->
-        <div class="golden-effects" id="goldenEffects"></div>
+        <!-- Golden Particle Effects -->
+        <div class="golden-particles" id="particles"></div>
         
         <!-- CTA Button -->
         <div class="cta-container">
-            <div class="cta-glow"></div>
             <a href="https://t.ly/HOBADS05" target="_blank">
                 <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" 
                      alt="马上申请代理" 
@@ -216,61 +206,102 @@
     </div>
 
     <script>
-        // Generate golden particles
-        function createGoldenParticles() {
-            const container = document.getElementById('goldenEffects');
-            
-            // Create floating particles
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'golden-particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(particle);
-            }
+        // Create golden particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
             
             // Create floating coins
             for (let i = 0; i < 8; i++) {
-                const coin = document.createElement('div');
-                coin.className = 'golden-coin';
-                coin.style.left = Math.random() * 100 + '%';
-                coin.style.animationDelay = Math.random() * 4 + 's';
-                coin.style.animationDuration = (4 + Math.random() * 2) + 's';
-                container.appendChild(coin);
+                setTimeout(() => {
+                    const coin = document.createElement('div');
+                    coin.className = 'coin';
+                    coin.style.left = Math.random() * 100 + '%';
+                    coin.style.animationDelay = Math.random() * 2 + 's';
+                    coin.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    particlesContainer.appendChild(coin);
+                    
+                    setTimeout(() => {
+                        coin.remove();
+                    }, 6000);
+                }, i * 800);
             }
             
             // Create sparkles
             for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    sparkle.style.animationDelay = Math.random() * 2 + 's';
+                    particlesContainer.appendChild(sparkle);
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 2000);
+                }, i * 200);
+            }
+            
+            // Create golden rain
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const rain = document.createElement('div');
+                    rain.className = 'golden-rain';
+                    rain.style.left = Math.random() * 100 + '%';
+                    rain.style.animationDelay = Math.random() * 1 + 's';
+                    particlesContainer.appendChild(rain);
+                    
+                    setTimeout(() => {
+                        rain.remove();
+                    }, 3000);
+                }, i * 300);
+            }
+            
+            // Create floating particles
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = (Math.random() * 8 + 4) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+        
+        // Continuously create new particles
+        setInterval(() => {
+            // Create new coins
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            coin.style.left = Math.random() * 100 + '%';
+            document.getElementById('particles').appendChild(coin);
+            setTimeout(() => coin.remove(), 4000);
+            
+            // Create new sparkles
+            if (Math.random() > 0.7) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
                 sparkle.style.top = Math.random() * 100 + '%';
-                sparkle.style.animationDelay = Math.random() * 2 + 's';
-                container.appendChild(sparkle);
+                document.getElementById('particles').appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 2000);
             }
-        }
-
-        // Initialize effects when page loads
-        window.addEventListener('load', function() {
-            createGoldenParticles();
             
-            // Continuously add new coins
-            setInterval(function() {
-                const container = document.getElementById('goldenEffects');
-                const coin = document.createElement('div');
-                coin.className = 'golden-coin';
-                coin.style.left = Math.random() * 100 + '%';
-                container.appendChild(coin);
-                
-                // Remove coin after animation
-                setTimeout(function() {
-                    if (coin.parentNode) {
-                        coin.parentNode.removeChild(coin);
-                    }
-                }, 4000);
-            }, 2000);
-        });
+            // Create new golden rain
+            if (Math.random() > 0.8) {
+                const rain = document.createElement('div');
+                rain.className = 'golden-rain';
+                rain.style.left = Math.random() * 100 + '%';
+                document.getElementById('particles').appendChild(rain);
+                setTimeout(() => rain.remove(), 3000);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
