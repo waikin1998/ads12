@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,30 +10,300 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html, body {
-            height: 100%;
-            width: 100%;
+
+        body, html {
+            height: 100vh;
+            width: 100vw;
             overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-        
-        body {
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
             background-image: url('https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #1a5f4a;
         }
-        
+
+        /* Golden particle effects */
+        .golden-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .gold-coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ffd700 0%, #b8860b 100%);
+            border-radius: 50%;
+            animation: floatCoin 4s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .gold-coin:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 3s; }
+        .gold-coin:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 4s; }
+        .gold-coin:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 3.5s; }
+        .gold-coin:nth-child(4) { left: 70%; animation-delay: 0.5s; animation-duration: 4.5s; }
+        .gold-coin:nth-child(5) { left: 80%; animation-delay: 1.5s; animation-duration: 3s; }
+        .gold-coin:nth-child(6) { left: 90%; animation-delay: 2.5s; animation-duration: 4s; }
+
+        @keyframes floatCoin {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            50% { opacity: 1; transform: translateY(50vh) rotate(180deg); }
+            100% { transform: translateY(-20px) rotate(360deg); opacity: 0; }
+        }
+
+        .gold-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite ease-in-out;
+            box-shadow: 0 0 6px #ffd700;
+        }
+
+        .gold-particle:nth-child(7) { left: 15%; top: 20%; animation-delay: 0s; }
+        .gold-particle:nth-child(8) { left: 35%; top: 30%; animation-delay: 0.5s; }
+        .gold-particle:nth-child(9) { left: 55%; top: 25%; animation-delay: 1s; }
+        .gold-particle:nth-child(10) { left: 75%; top: 35%; animation-delay: 1.5s; }
+        .gold-particle:nth-child(11) { left: 25%; top: 60%; animation-delay: 2s; }
+        .gold-particle:nth-child(12) { left: 65%; top: 70%; animation-delay: 2.5s; }
+        .gold-particle:nth-child(13) { left: 85%; top: 50%; animation-delay: 3s; }
+        .gold-particle:nth-child(14) { left: 5%; top: 80%; animation-delay: 3.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .falling-gold {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            animation: fall 5s infinite linear;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+        }
+
+        .falling-gold:nth-child(15) { left: 5%; animation-delay: 0s; }
+        .falling-gold:nth-child(16) { left: 25%; animation-delay: 1s; }
+        .falling-gold:nth-child(17) { left: 45%; animation-delay: 2s; }
+        .falling-gold:nth-child(18) { left: 65%; animation-delay: 3s; }
+        .falling-gold:nth-child(19) { left: 85%; animation-delay: 4s; }
+        .falling-gold:nth-child(20) { left: 15%; animation-delay: 0.5s; }
+        .falling-gold:nth-child(21) { left: 35%; animation-delay: 1.5s; }
+        .falling-gold:nth-child(22) { left: 55%; animation-delay: 2.5s; }
+        .falling-gold:nth-child(23) { left: 75%; animation-delay: 3.5s; }
+        .falling-gold:nth-child(24) { left: 95%; animation-delay: 4.5s; }
+
+        @keyframes fall {
+            0% { transform: translateY(-20px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* CTA Button */
+        .cta-button {
+            position: absolute;
+            bottom: 13%; /* Moved down by approximately 3cm (from previous 16% to 13%) */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            z-index: 1000;
+        }
+
+        .cta-button img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-button:hover {
+            transform: translateX(-50%) scale(1.1);
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9));
+            animation: pulse 1s infinite, float 3s ease-in-out infinite;
+        }
+
+        .cta-button:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        @keyframes pulse {
+            0% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); }
+            50% { filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.9)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Glow effect around CTA */
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 2s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .cta-button {
+                width: 150px;
+                bottom: 10%;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .cta-button {
+                bottom: 5%;
+            }
+        }
+
+        /* PDF optimization */
         @media print {
-            body {
-                background-attachment: scroll;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            body, html {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            
+            .container {
+                height: 100vh;
+                page-break-inside: avoid;
+            }
+            
+            .golden-particles {
+                display: none; /* Hide animations in PDF */
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Golden particle effects -->
+        <div class="golden-particles">
+            <!-- Gold coins -->
+            <div class="gold-coin"></div>
+            <div class="gold-coin"></div>
+            <div class="gold-coin"></div>
+            <div class="gold-coin"></div>
+            <div class="gold-coin"></div>
+            <div class="gold-coin"></div>
+            
+            <!-- Gold particles -->
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            <div class="gold-particle"></div>
+            
+            <!-- Falling gold particles -->
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+            <div class="falling-gold"></div>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="https://t.ly/HOBADS05" target="_blank" class="cta-button">
+            <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理">
+        </a>
+    </div>
+
+    <script>
+        // Add more dynamic golden particles
+        function createRandomGoldParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'gold-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            
+            document.querySelector('.golden-particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 4000);
+        }
+
+        // Create random particles every 3 seconds
+        setInterval(createRandomGoldParticle, 3000);
+
+        // Add click effect to CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            // Create burst effect
+            for (let i = 0; i < 10; i++) {
+                const burst = document.createElement('div');
+                burst.style.position = 'absolute';
+                burst.style.width = '8px';
+                burst.style.height = '8px';
+                burst.style.background = '#ffd700';
+                burst.style.borderRadius = '50%';
+                burst.style.left = e.clientX + 'px';
+                burst.style.top = e.clientY + 'px';
+                burst.style.pointerEvents = 'none';
+                burst.style.animation = `burstOut 0.8s ease-out forwards`;
+                burst.style.animationDelay = (i * 0.05) + 's';
+                
+                document.body.appendChild(burst);
+                
+                setTimeout(() => burst.remove(), 1000);
+            }
+        });
+
+        // Add burst animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes burstOut {
+                0% { 
+                    transform: scale(1) translate(0, 0); 
+                    opacity: 1; 
+                }
+                100% { 
+                    transform: scale(0) translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px); 
+                    opacity: 0; 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
