@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HengOngBet - 马来西亚首选游戏平台</title>
+    <meta name="description" content="HengOngBet专业在线游戏平台，提供安全可靠的游戏体验和代理服务">
     <style>
         * {
             margin: 0;
@@ -12,22 +13,21 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
             background-color: #000000;
             color: #FFD700;
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
+            min-height: 100vh;
         }
         
-        /* Particle Canvas */
         #particles-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: -1;
             pointer-events: none;
         }
         
@@ -36,38 +36,35 @@
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
         
-        /* Logo Section - Moved Up */
         .logo-section {
             text-align: center;
-            padding: 10px 0 5px 0; /* Reduced top padding */
+            padding: 5px 0 10px 0;
         }
         
         .logo-section img {
-            max-width: 200px;
+            max-width: 120px;
             height: auto;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
         }
         
-        /* Promotional Image - Tight spacing */
         .promo-section {
             text-align: center;
-            margin: 5px 0 20px 0; /* Very small top margin */
+            margin-bottom: 20px;
         }
         
         .promo-section img {
             max-width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
         }
         
-        /* CTA Section */
         .cta-section {
             text-align: center;
-            margin: 30px 0;
+            margin-bottom: 25px;
         }
         
         .cta-guide {
@@ -75,164 +72,183 @@
         }
         
         .cta-guide p {
-            font-size: 16px;
-            font-weight: bold;
             color: #FFD700;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            font-size: 18px;
+            font-weight: bold;
             margin: 5px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .cta-button {
-            background: linear-gradient(45deg, #FF6B35, #FF8E53, #FF6B35);
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
+            background: linear-gradient(135deg, #FF6B35, #FF8E53, #FF6B35);
+            border: 3px solid #FFD700;
             color: white;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            box-shadow: 
-                0 0 15px rgba(255, 107, 53, 0.4),
-                0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            display: inline-block;
             text-decoration: none;
-            line-height: 1.2;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: ctaGlow 2s ease-in-out infinite alternate;
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 0 25px rgba(255, 107, 53, 0.6),
-                0 8px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
         }
         
-        /* Titles Section - Enlarged main title */
-        .titles-section {
+        .cta-button .malay-text {
+            display: block;
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        @keyframes ctaGlow {
+            from { box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4), 0 0 20px rgba(255, 215, 0, 0.3); }
+            to { box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6), 0 0 30px rgba(255, 215, 0, 0.5); }
+        }
+        
+        .title-section {
             text-align: center;
-            margin: 40px 0;
+            margin-bottom: 30px;
         }
         
         .main-title {
-            font-size: 42px; /* Enlarged */
+            font-size: 42px;
             font-weight: bold;
+            margin-bottom: 8px;
             background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            margin-bottom: 8px;
+            text-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
         
         .main-title-malay {
             font-size: 28px;
-            color: #DAA520;
+            margin-bottom: 15px;
+            color: #FFA500;
             font-weight: 500;
-            margin-bottom: 25px;
         }
         
         .sub-title {
             font-size: 24px;
-            color: #FFD700;
-            font-weight: bold;
             margin-bottom: 5px;
+            color: #FFD700;
+            font-weight: 600;
         }
         
         .sub-title-malay {
             font-size: 18px;
-            color: #DAA520;
+            color: #FFA500;
             font-weight: 400;
         }
         
-        /* Features Section */
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+        }
+        
         .features-section {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 50px 0;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
         }
         
         .feature-card {
-            flex: 1;
-            min-width: 280px;
             background: rgba(255, 215, 0, 0.1);
             border: 2px solid rgba(255, 215, 0, 0.3);
             border-radius: 15px;
-            padding: 30px 20px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
-            animation: float 6s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
         
         .feature-card:nth-child(2) {
-            animation-delay: -2s;
+            animation-delay: -1.3s;
         }
         
         .feature-card:nth-child(3) {
-            animation-delay: -4s;
+            animation-delay: -2.6s;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.6);
+            transform: translateY(-8px);
+            background: rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
         }
         
-        .feature-icon {
-            font-size: 40px;
+        .feature-card .icon {
+            font-size: 48px;
             margin-bottom: 15px;
+            display: block;
         }
         
-        .feature-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #FFD700;
+        .feature-card h3 {
+            font-size: 22px;
             margin-bottom: 8px;
+            color: #FFD700;
         }
         
-        .feature-title-malay {
+        .feature-card .malay-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #FFA500;
+        }
+        
+        .feature-card p {
             font-size: 16px;
-            color: #DAA520;
-            margin-bottom: 15px;
-        }
-        
-        .feature-description {
-            font-size: 14px;
-            color: #CCC;
-            line-height: 1.5;
+            color: #E0E0E0;
             margin-bottom: 5px;
         }
         
-        .feature-description-malay {
-            font-size: 12px;
-            color: #AAA;
-            line-height: 1.4;
+        .feature-card .malay-desc {
+            font-size: 14px;
+            color: #CCCCCC;
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            margin-top: 50px;
-        }
-        
-        .footer p {
-            font-size: 12px;
-            color: #888;
-            margin: 5px 0;
-        }
-        
-        /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
         
-        /* Responsive Design */
+        .footer-section {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 30px;
+        }
+        
+        .footer-section p {
+            font-size: 14px;
+            color: #999;
+            margin: 5px 0;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo-section img {
+                max-width: 100px;
+            }
+            
             .main-title {
                 font-size: 32px;
             }
@@ -241,16 +257,36 @@
                 font-size: 22px;
             }
             
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+            
             .features-section {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .feature-card {
-                min-width: auto;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 28px;
+            }
+            
+            .main-title-malay {
+                font-size: 20px;
+            }
+            
+            .cta-guide p {
+                font-size: 16px;
             }
             
             .cta-button {
-                padding: 12px 30px;
+                padding: 12px 25px;
                 font-size: 16px;
             }
         }
@@ -260,148 +296,153 @@
     <canvas id="particles-canvas"></canvas>
     
     <div class="container">
-        <!-- Logo Section -->
         <section class="logo-section">
             <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_064de9a1-edef-4702-a491-e2249017641a" alt="HengOngBet Logo">
         </section>
         
-        <!-- Promotional Image -->
         <section class="promo-section">
             <img src="https://page.gensparksite.com/v1/base64_upload/6d1745daa576f072572a5a9de07aac18" alt="HengOngBet 促销活动">
         </section>
         
-        <!-- CTA Section -->
         <section class="cta-section">
             <div class="cta-guide">
                 <p>⬇️点击立刻成为代理⬇️</p>
                 <p>⬇️CLICK UNTUK JOIN AGENT⬇️</p>
             </div>
-            <button class="cta-button" onclick="handleCTAClick()">
-                立即加入代理<br>
-                <span style="font-size: 14px;">Sertai Sebagai Ejen Sekarang</span>
-            </button>
+            <a href="#" class="cta-button" onclick="alert('请联系客服了解代理详情！'); return false;">
+                立即加入代理
+                <span class="malay-text">Sertai Sebagai Ejen Sekarang</span>
+            </a>
         </section>
         
-        <!-- Titles Section -->
-        <section class="titles-section">
+        <section class="title-section">
             <h1 class="main-title">马来西亚首选游戏平台</h1>
             <p class="main-title-malay">Platform Permainan Pilihan Malaysia</p>
-            
             <h2 class="sub-title">立即加入代理</h2>
             <p class="sub-title-malay">Sertai Sebagai Ejen Sekarang</p>
         </section>
         
-        <!-- Features Section -->
         <section class="features-section">
             <div class="feature-card">
-                <div class="feature-icon">🎁</div>
-                <h3 class="feature-title">代理优惠</h3>
-                <h4 class="feature-title-malay">Tawaran Ejen</h4>
-                <p class="feature-description">高回酬奖励计划，让您的每一份努力都获得丰厚回报。专业代理支持，助您成功。</p>
-                <p class="feature-description-malay">Pelan ganjaran komisen tinggi dengan sokongan ejen profesional untuk kejayaan anda.</p>
+                <span class="icon">🎁</span>
+                <h3>代理优惠</h3>
+                <p class="malay-title">Tawaran Ejen</p>
+                <p>高回酬奖励计划，让您的每一份努力都获得丰厚回报。专业代理支持，助您成功。</p>
+                <p class="malay-desc">Pelan ganjaran komisen tinggi dengan sokongan ejen profesional</p>
             </div>
-            
             <div class="feature-card">
-                <div class="feature-icon">🕐</div>
-                <h3 class="feature-title">24/7客服</h3>
-                <h4 class="feature-title-malay">Khidmat Pelanggan 24/7</h4>
-                <p class="feature-description">全天候专业客服团队，随时为您解答问题，提供即时支持和专业指导。</p>
-                <p class="feature-description-malay">Pasukan khidmat pelanggan profesional 24/7 sedia membantu dengan sokongan segera.</p>
+                <span class="icon">🕐</span>
+                <h3>24/7客服</h3>
+                <p class="malay-title">Khidmat Pelanggan 24/7</p>
+                <p>全天候专业客服团队，随时为您解答问题，提供即时支持和专业指导。</p>
+                <p class="malay-desc">Perkhidmatan pelanggan profesional sepanjang masa</p>
             </div>
-            
             <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h3 class="feature-title">安全保障</h3>
-                <h4 class="feature-title-malay">Jaminan Keselamatan</h4>
-                <p class="feature-description">资金安全有保障，游戏公平透明，采用国际标准加密技术保护您的隐私。</p>
-                <p class="feature-description-malay">Dana selamat, permainan adil dengan teknologi enkripsi standard antarabangsa.</p>
+                <span class="icon">🛡️</span>
+                <h3>安全保障</h3>
+                <p class="malay-title">Jaminan Keselamatan</p>
+                <p>资金安全有保障，游戏公平透明，采用国际标准加密技术保护您的隐私。</p>
+                <p class="malay-desc">Dana selamat dengan permainan yang adil dan teknologi enkripsi antarabangsa</p>
             </div>
         </section>
         
-        <!-- Footer -->
-        <footer class="footer">
-            <p>*受条款和条件约束，请负责任地游戏</p>
-            <p>*Tertakluk kepada terma dan syarat, sila bermain dengan bertanggungjawab</p>
-            <p>&copy; 2024 HengOngBet. 版权所有 | Hak Cipta Terpelihara</p>
-        </footer>
+        <section class="footer-section">
+            <p>© 2024 HengOngBet. 版权所有 | Hak Cipta Terpelihara</p>
+            <p class="disclaimer">*受条款和条件约束，请负责任地游戏</p>
+            <p class="disclaimer">*Tertakluk kepada terma dan syarat, sila bermain dengan bertanggungjawab</p>
+            <p class="disclaimer">仅限18岁以上人士 | Hanya untuk 18 tahun ke atas</p>
+        </section>
     </div>
     
     <script>
-        // Particles Animation
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const particles = [];
-        const particleCount = 50;
-        
-        class Particle {
+        // 粒子背景效果
+        class ParticleSystem {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
-                this.opacity = Math.random() * 0.8 + 0.2;
+                this.canvas = document.getElementById('particles-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = window.innerWidth < 768 ? 30 : 50;
+                
+                this.resizeCanvas();
+                this.createParticles();
+                this.animate();
+                
+                window.addEventListener('resize', () => {
+                    this.resizeCanvas();
+                    this.particles = [];
+                    this.particleCount = window.innerWidth < 768 ? 30 : 50;
+                    this.createParticles();
+                });
             }
             
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-                
-                this.opacity += (Math.random() - 0.5) * 0.02;
-                this.opacity = Math.max(0.1, Math.min(0.8, this.opacity));
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
             }
             
-            draw() {
-                ctx.fillStyle = `rgba(255, 215, 0, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+            createParticles() {
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        size: Math.random() * 3 + 1,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        opacity: Math.random() * 0.8 + 0.2,
+                        pulse: Math.random() * 0.02 + 0.01
+                    });
+                }
+            }
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = 'rgba(255, 215, 0, 0.5)';
-                ctx.fill();
-                ctx.shadowBlur = 0;
+                this.particles.forEach(particle => {
+                    // 更新位置
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    // 边界检测
+                    if (particle.x < 0 || particle.x > this.canvas.width) {
+                        particle.speedX *= -1;
+                    }
+                    if (particle.y < 0 || particle.y > this.canvas.height) {
+                        particle.speedY *= -1;
+                    }
+                    
+                    // 脉冲效果
+                    particle.opacity += particle.pulse;
+                    if (particle.opacity >= 1 || particle.opacity <= 0.2) {
+                        particle.pulse *= -1;
+                    }
+                    
+                    // 绘制粒子
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(255, 215, 0, ${particle.opacity})`;
+                    this.ctx.fill();
+                    
+                    // 添加发光效果
+                    this.ctx.shadowBlur = 10;
+                    this.ctx.shadowColor = '#FFD700';
+                    this.ctx.fill();
+                    this.ctx.shadowBlur = 0;
+                });
+                
+                requestAnimationFrame(() => this.animate());
             }
         }
         
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-        
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
-        // CTA Click Handler
-        function handleCTAClick() {
-            alert('请联系客服了解代理详情！\nSila hubungi khidmat pelanggan untuk maklumat lanjut!');
-        }
-        
-        // Smooth scrolling and enhanced animations
+        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
+            new ParticleSystem();
+            
+            // 添加页面滚动动画效果
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -409,13 +450,14 @@
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            });
+            }, observerOptions);
             
-            document.querySelectorAll('.feature-card, .titles-section, .cta-section').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease';
-                observer.observe(el);
+            // 为卡片添加动画
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
             });
         });
     </script>
