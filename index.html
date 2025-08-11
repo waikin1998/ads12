@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>HengOngBet Landing Page</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -48,13 +48,14 @@
         .background-image {
             width: 100%;
             height: auto;
+            max-width: 500px;
             object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            top: 82%;
+            top: 62%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
@@ -90,44 +91,17 @@
             }
         }
 
-        /* Desktop adjustments - limit background image size */
-        @media (min-width: 1024px) {
+        @media (max-width: 768px) {
             .background-image {
-                max-width: 600px;
-                max-height: 80vh;
-                width: auto;
-                height: auto;
+                max-width: 100%;
             }
             
             .cta-button {
                 width: 200px;
             }
-        }
-
-        /* Tablet adjustments */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .background-image {
-                max-width: 500px;
-                width: 90%;
-            }
-            
-            .cta-button {
-                width: 220px;
-            }
             
             .cta-container {
-                top: 80%;
-            }
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 767px) {
-            .cta-button {
-                width: 200px;
-            }
-            
-            .cta-container {
-                top: 80%;
+                top: 58%;
             }
         }
 
@@ -137,7 +111,18 @@
             }
             
             .cta-container {
-                top: 78%;
+                top: 55%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .background-image {
+                max-width: 450px;
+                max-height: 80vh;
+            }
+            
+            .cta-container {
+                top: 62%;
             }
         }
 
@@ -169,7 +154,7 @@
         <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="Background" class="background-image">
         
         <div class="cta-container">
-            <a href="https://wa.link/hobcs08" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
+            <a href="https://hob05.wasap.my" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
                 <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理" class="cta-button">
             </a>
         </div>
