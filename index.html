@@ -34,57 +34,53 @@
             font-family: Arial, sans-serif;
             overflow-x: hidden;
             background-color: #000;
+        }
+
+        .background-container {
+            position: relative;
+            width: 100%;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .background-container {
-            position: relative;
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
         .background-image {
+            max-width: 600px;
+            max-height: 90vh;
             width: 100%;
             height: auto;
+            object-fit: contain;
             display: block;
-            border-radius: 10px;
         }
 
         .cta-container {
             position: absolute;
-            bottom: 15%;
+            top: calc(50% - 100px);
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            background: linear-gradient(145deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
             border: 3px solid #DC143C;
-            border-radius: 25px;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+            padding: 15px 35px;
+            border-radius: 25px;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
             transition: all 0.2s ease;
             animation: float 1.5s ease-in-out infinite;
-            user-select: none;
-            min-width: 180px;
-            text-align: center;
         }
 
         .cta-button:active {
             transform: scale(0.95);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
         @keyframes float {
@@ -92,35 +88,30 @@
                 transform: translateY(0px);
             }
             50% { 
-                transform: translateY(-8px);
+                transform: translateY(-10px);
             }
         }
 
         @media (max-width: 768px) {
-            .background-container {
-                max-width: 95%;
-            }
-            
-            .cta-button {
-                font-size: 18px;
-                padding: 12px 30px;
-                min-width: 160px;
+            .background-image {
+                max-width: 100%;
+                max-height: 80vh;
             }
             
             .cta-container {
-                bottom: 12%;
+                top: calc(50% - 100px);
+            }
+            
+            .cta-button {
+                font-size: 16px;
+                padding: 12px 28px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                font-size: 16px;
+                font-size: 14px;
                 padding: 10px 25px;
-                min-width: 140px;
-            }
-            
-            .cta-container {
-                bottom: 10%;
             }
         }
     </style>
