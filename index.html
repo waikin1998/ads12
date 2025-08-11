@@ -46,72 +46,97 @@
         }
 
         .background-image {
-            max-width: 600px;
-            max-height: 90vh;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            top: calc(50% - 100px);
+            z-index: 100;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 100;
         }
 
         .cta-button {
-            background: linear-gradient(145deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
             border: 3px solid #DC143C;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
+            border-radius: 15px;
             padding: 15px 35px;
-            border-radius: 25px;
-            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
             transition: all 0.2s ease;
-            animation: float 1.5s ease-in-out infinite;
+            animation: fastFloat 1s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .cta-button:active {
-            transform: scale(0.95);
+            transform: translateX(-50%) scale(0.95);
         }
 
-        @keyframes float {
+        @keyframes fastFloat {
             0%, 100% { 
                 transform: translateY(0px);
             }
             50% { 
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
         }
 
+        /* 手机版本 - 背景图全屏显示 */
         @media (max-width: 768px) {
             .background-image {
-                max-width: 100%;
-                max-height: 80vh;
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
             }
             
             .cta-container {
-                top: calc(50% - 100px);
+                bottom: 25%;
             }
             
             .cta-button {
-                font-size: 16px;
-                padding: 12px 28px;
+                font-size: 18px;
+                padding: 12px 30px;
             }
         }
 
-        @media (max-width: 480px) {
-            .cta-button {
-                font-size: 14px;
-                padding: 10px 25px;
+        /* 电脑版本 - 背景图适中大小 */
+        @media (min-width: 769px) {
+            .background-image {
+                max-width: 600px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+            
+            .cta-container {
+                bottom: 15%;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .background-container {
+                min-height: auto;
+                height: auto;
+                page-break-inside: avoid;
+            }
+            
+            .background-image {
+                max-height: none;
+                height: auto;
+            }
+            
+            .cta-container {
+                position: absolute;
             }
         }
     </style>
