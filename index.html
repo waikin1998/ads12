@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - Double Gift CTA</title>
+    <title>HengOngBet Landing Page</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -56,128 +56,109 @@
         .cta-container {
             position: absolute;
             top: 68%;
-            left: 48%;
+            left: calc(50% - 2cm);
             transform: translateX(-50%);
             z-index: 100;
         }
 
         .cta-button {
-            background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00, #B8860B);
-            background-size: 300% 300%;
-            color: white;
-            border: none;
-            padding: 18px 40px;
+            padding: 18px 36px;
             font-size: 20px;
             font-weight: 900;
-            border-radius: 50px;
-            cursor: pointer;
+            color: white;
             text-decoration: none;
+            border-radius: 25px;
             display: inline-block;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Arial Black', Arial, sans-serif;
             letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
             
-            /* Enhanced shadows for depth */
+            /* Enhanced gradient background */
+            background: linear-gradient(135deg, 
+                #ffd700 0%, 
+                #ffed4e 15%, 
+                #ffa500 30%, 
+                #ff8c00 50%, 
+                #ffd700 70%, 
+                #ffed4e 85%, 
+                #ffd700 100%);
+            
+            /* Multiple glowing borders */
+            border: 3px solid #ff4444;
             box-shadow: 
-                0 8px 25px rgba(255, 215, 0, 0.4),
-                0 4px 15px rgba(255, 165, 0, 0.3),
-                inset 0 2px 8px rgba(255, 255, 255, 0.3),
-                inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 215, 0, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                0 5px 15px rgba(0, 0, 0, 0.3);
             
-            /* Glowing border */
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            
-            /* Scale up 10% */
-            transform: scale(1.1);
+            /* Text shadow for depth */
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(255, 215, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.3);
             
             /* Animation */
-            animation: float 1.5s ease-in-out infinite, shimmer 3s ease-in-out infinite;
-            
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, #FFD700, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7, #DDA0DD, #FFD700);
-            background-size: 400% 400%;
-            border-radius: 50px;
-            z-index: -1;
-            animation: borderGlow 2s ease-in-out infinite;
-        }
-
-        .cta-button:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shine 2.5s ease-in-out infinite;
+            animation: ctaFloat 1s ease-in-out infinite, shimmer 2s ease-in-out infinite alternate;
         }
 
         .cta-button:active {
-            transform: scale(1.08);
-            box-shadow: 
-                0 4px 15px rgba(255, 215, 0, 0.6),
-                0 2px 8px rgba(255, 165, 0, 0.4),
-                inset 0 2px 8px rgba(255, 255, 255, 0.4);
+            transform: translateX(-50%) scale(0.98);
         }
 
-        @keyframes float {
+        @keyframes ctaFloat {
             0%, 100% { 
-                transform: scale(1.1) translateY(0px);
+                transform: translateY(0px);
             }
             50% { 
-                transform: scale(1.1) translateY(-12px);
+                transform: translateY(-8px);
             }
         }
 
         @keyframes shimmer {
-            0%, 100% { 
-                background-position: 0% 50%;
+            0% {
+                box-shadow: 
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 40px rgba(255, 215, 0, 0.6),
+                    0 0 60px rgba(255, 215, 0, 0.4),
+                    inset 0 0 20px rgba(255, 255, 255, 0.2),
+                    0 10px 30px rgba(0, 0, 0, 0.5);
             }
-            50% { 
-                background-position: 100% 50%;
+            100% {
+                box-shadow: 
+                    0 0 25px rgba(255, 215, 0, 1),
+                    0 0 45px rgba(255, 215, 0, 0.8),
+                    0 0 65px rgba(255, 215, 0, 0.6),
+                    inset 0 0 25px rgba(255, 255, 255, 0.3),
+                    0 15px 35px rgba(0, 0, 0, 0.6);
             }
         }
 
-        @keyframes borderGlow {
-            0%, 100% { 
-                background-position: 0% 50%;
-                opacity: 0.8;
+        /* Desktop specific positioning */
+        @media (min-width: 769px) {
+            .background-image {
+                max-width: 600px;
             }
-            50% { 
-                background-position: 100% 50%;
-                opacity: 1;
+            .cta-container {
+                top: calc(68% + 1cm);
+                left: calc(50% - 2cm);
             }
         }
 
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        /* Mobile styles */
+        /* Mobile specific positioning */
         @media (max-width: 768px) {
             .background-image {
                 width: 100%;
-                max-width: none;
+                max-width: 100%;
                 object-fit: contain;
             }
-            
             .cta-container {
-                top: 60%;
-                left: 38%;
+                top: calc(65% - 5cm);
+                left: calc(50% - 3cm);
             }
-            
             .cta-button {
                 padding: 16px 32px;
                 font-size: 18px;
@@ -186,10 +167,9 @@
 
         @media (max-width: 480px) {
             .cta-container {
-                top: 58%;
-                left: 35%;
+                top: calc(63% - 5cm);
+                left: calc(50% - 3cm);
             }
-            
             .cta-button {
                 padding: 14px 28px;
                 font-size: 16px;
@@ -221,7 +201,7 @@
 </head>
 <body>
     <div class="background-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="Background" class="background-image">
+        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="HengOngBet Background" class="background-image">
         
         <div class="cta-container">
             <a href="https://hob05.wasap.my" target="_blank" class="cta-button" onclick="fbq('track', 'Lead');">
