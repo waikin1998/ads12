@@ -49,14 +49,13 @@
             width: 100%;
             height: auto;
             max-width: 800px;
-            max-height: 90vh;
             object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            top: 66%;
+            top: 67%;
             left: calc(50% - 2cm);
             transform: translateX(-50%);
             z-index: 100;
@@ -68,27 +67,38 @@
         }
 
         .cta-button {
-            background: linear-gradient(145deg, #FFD700, #B8860B, #DAA520);
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
             border: 3px solid #DC143C;
             color: white;
             font-size: 20px;
             font-weight: bold;
             padding: 15px 30px;
-            border-radius: 12px;
+            border-radius: 25px;
             cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
             transition: all 0.2s ease;
-            animation: fastFloat 1s ease-in-out infinite;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            display: inline-block;
-            user-select: none;
+            animation: float 1s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
 
         .cta-button:active {
             transform: scale(0.98);
         }
 
-        @keyframes fastFloat {
+        @keyframes float {
             0%, 100% { 
                 transform: translateY(0px);
             }
@@ -100,14 +110,13 @@
         @media (max-width: 768px) {
             .background-image {
                 width: 100%;
-                max-width: 100%;
-                max-height: none;
+                max-width: none;
                 height: auto;
                 object-fit: contain;
             }
             
             .cta-container {
-                top: 68%;
+                top: 58%;
                 left: calc(50% - 3cm);
             }
             
@@ -119,7 +128,7 @@
 
         @media (max-width: 480px) {
             .cta-container {
-                top: 66%;
+                top: 56%;
                 left: calc(50% - 3cm);
             }
             
@@ -154,11 +163,11 @@
 </head>
 <body>
     <div class="background-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="Background" class="background-image">
+        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="HengOngBet Background" class="background-image">
         
         <div class="cta-container">
             <a href="https://hob05.wasap.my" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
-                <div class="cta-button">免费申请</div>
+                <button class="cta-button">免费申请</button>
             </a>
         </div>
     </div>
