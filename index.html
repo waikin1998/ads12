@@ -46,75 +46,113 @@
         }
 
         .background-image {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            z-index: 100;
+            top: 50%;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 100;
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+            background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00);
             border: 3px solid #DC143C;
             border-radius: 15px;
-            padding: 15px 35px;
-            font-size: 20px;
-            font-weight: bold;
+            padding: 15px 40px;
             color: white;
+            font-size: 24px;
+            font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 8px 16px rgba(0,0,0,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.3);
             cursor: pointer;
             transition: all 0.2s ease;
-            animation: fastFloat 1s ease-in-out infinite;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: floatAnimation 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            min-width: 200px;
+            text-align: center;
         }
 
         .cta-button:active {
-            transform: translateX(-50%) scale(0.95);
+            transform: scale(0.95);
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.3);
         }
 
-        @keyframes fastFloat {
+        @keyframes floatAnimation {
             0%, 100% { 
                 transform: translateY(0px);
             }
             50% { 
-                transform: translateY(-8px);
+                transform: translateY(-12px);
             }
         }
 
-        /* 手机版本 - 背景图全屏显示 */
-        @media (max-width: 768px) {
-            .background-image {
-                width: 100%;
-                height: 100vh;
-                object-fit: cover;
-            }
-            
-            .cta-container {
-                bottom: 25%;
-            }
-            
-            .cta-button {
-                font-size: 18px;
-                padding: 12px 30px;
-            }
-        }
-
-        /* 电脑版本 - 背景图适中大小 */
+        /* Desktop styles */
         @media (min-width: 769px) {
             .background-image {
                 max-width: 600px;
+                max-height: 90vh;
+            }
+            
+            .cta-container {
+                top: 45%;
+            }
+            
+            .cta-button {
+                font-size: 26px;
+                padding: 18px 45px;
+            }
+        }
+
+        /* Tablet styles */
+        @media (max-width: 768px) and (min-width: 481px) {
+            .background-image {
+                max-width: 90%;
+                max-height: 85vh;
+            }
+            
+            .cta-container {
+                top: 50%;
+            }
+            
+            .cta-button {
+                font-size: 22px;
+                padding: 14px 35px;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 480px) {
+            .background-container {
+                padding: 10px;
+            }
+            
+            .background-image {
                 width: 100%;
+                max-width: 100%;
                 height: auto;
                 object-fit: contain;
             }
             
             .cta-container {
-                bottom: 15%;
+                top: 52%;
+            }
+            
+            .cta-button {
+                font-size: 20px;
+                padding: 12px 30px;
+                min-width: 180px;
             }
         }
 
