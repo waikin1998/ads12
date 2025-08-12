@@ -56,7 +56,7 @@
         .cta-container {
             position: absolute;
             top: 67%;
-            left: calc(50% - 2cm);
+            left: 46%;
             transform: translateX(-50%);
             z-index: 100;
         }
@@ -67,38 +67,28 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
-            border: 3px solid #DC143C;
-            color: white;
+            padding: 18px 44px;
             font-size: 20px;
             font-weight: bold;
-            padding: 15px 30px;
-            border-radius: 25px;
+            color: white;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+            border: 3px solid #DC143C;
+            border-radius: 15px;
             cursor: pointer;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
             transition: all 0.2s ease;
-            animation: float 1s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            animation: fastFloat 1s ease-in-out infinite;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            display: inline-block;
+            text-align: center;
+            min-width: 160px;
         }
 
         .cta-button:active {
             transform: scale(0.98);
         }
 
-        @keyframes float {
+        @keyframes fastFloat {
             0%, 100% { 
                 transform: translateY(0px);
             }
@@ -110,53 +100,32 @@
         @media (max-width: 768px) {
             .background-image {
                 width: 100%;
-                max-width: none;
                 height: auto;
                 object-fit: contain;
             }
             
             .cta-container {
-                top: 58%;
-                left: calc(50% - 3cm);
+                top: 55%;
+                left: 35%;
             }
             
             .cta-button {
+                padding: 16px 38px;
                 font-size: 18px;
-                padding: 12px 25px;
+                min-width: 140px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-container {
-                top: 56%;
-                left: calc(50% - 3cm);
+                top: 53%;
+                left: 35%;
             }
             
             .cta-button {
+                padding: 14px 32px;
                 font-size: 16px;
-                padding: 10px 20px;
-            }
-        }
-
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            
-            .background-container {
-                min-height: auto;
-                height: auto;
-                page-break-inside: avoid;
-            }
-            
-            .background-image {
-                max-height: none;
-                height: auto;
-            }
-            
-            .cta-container {
-                position: absolute;
+                min-width: 120px;
             }
         }
     </style>
@@ -167,7 +136,7 @@
         
         <div class="cta-container">
             <a href="https://hob05.wasap.my" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
-                <button class="cta-button">免费申请</button>
+                <div class="cta-button">免费申请</div>
             </a>
         </div>
     </div>
