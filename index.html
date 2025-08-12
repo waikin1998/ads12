@@ -49,110 +49,83 @@
             width: 100%;
             height: auto;
             max-width: 800px;
+            max-height: 90vh;
             object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 66%;
+            left: calc(50% - 2cm);
             transform: translateX(-50%);
             z-index: 100;
         }
 
-        .cta-button {
-            background: linear-gradient(145deg, #FFD700, #FFA500, #FF8C00);
-            border: 3px solid #DC143C;
-            border-radius: 15px;
-            padding: 15px 40px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
+        .cta-link {
             display: inline-block;
-            box-shadow: 
-                0 8px 16px rgba(0,0,0,0.3),
-                inset 0 2px 4px rgba(255,255,255,0.3);
+            text-decoration: none;
+        }
+
+        .cta-button {
+            background: linear-gradient(145deg, #FFD700, #B8860B, #DAA520);
+            border: 3px solid #DC143C;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
-            animation: floatAnimation 2s ease-in-out infinite;
+            animation: fastFloat 1s ease-in-out infinite;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            min-width: 200px;
-            text-align: center;
+            display: inline-block;
+            user-select: none;
         }
 
         .cta-button:active {
-            transform: scale(0.95);
-            box-shadow: 
-                0 4px 8px rgba(0,0,0,0.3),
-                inset 0 2px 4px rgba(255,255,255,0.3);
+            transform: scale(0.98);
         }
 
-        @keyframes floatAnimation {
+        @keyframes fastFloat {
             0%, 100% { 
                 transform: translateY(0px);
             }
             50% { 
-                transform: translateY(-12px);
+                transform: translateY(-8px);
             }
         }
 
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .background-image {
-                max-width: 600px;
-                max-height: 90vh;
-            }
-            
-            .cta-container {
-                top: 45%;
-            }
-            
-            .cta-button {
-                font-size: 26px;
-                padding: 18px 45px;
-            }
-        }
-
-        /* Tablet styles */
-        @media (max-width: 768px) and (min-width: 481px) {
-            .background-image {
-                max-width: 90%;
-                max-height: 85vh;
-            }
-            
-            .cta-container {
-                top: 50%;
-            }
-            
-            .cta-button {
-                font-size: 22px;
-                padding: 14px 35px;
-            }
-        }
-
-        /* Mobile styles */
-        @media (max-width: 480px) {
-            .background-container {
-                padding: 10px;
-            }
-            
+        @media (max-width: 768px) {
             .background-image {
                 width: 100%;
                 max-width: 100%;
+                max-height: none;
                 height: auto;
                 object-fit: contain;
             }
             
             .cta-container {
-                top: 52%;
+                top: 68%;
+                left: calc(50% - 3cm);
             }
             
             .cta-button {
-                font-size: 20px;
-                padding: 12px 30px;
-                min-width: 180px;
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-container {
+                top: 66%;
+                left: calc(50% - 3cm);
+            }
+            
+            .cta-button {
+                font-size: 16px;
+                padding: 10px 20px;
             }
         }
 
@@ -181,11 +154,11 @@
 </head>
 <body>
     <div class="background-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="HengOngBet Background" class="background-image">
+        <img src="https://page.gensparksite.com/v1/base64_upload/6030883d9553b1cce106689563f6cb76" alt="Background" class="background-image">
         
         <div class="cta-container">
-            <a href="https://hob05.wasap.my" target="_blank" class="cta-button" onclick="fbq('track', 'Lead');">
-                免费申请
+            <a href="https://hob05.wasap.my" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
+                <div class="cta-button">免费申请</div>
             </a>
         </div>
     </div>
